@@ -1,7 +1,7 @@
 module Rails3ServeStaticAssets
-  class Railtie < Rails::Railtie
-    config.after_initialize do
-      ::Rails.configuration.serve_static_assets = true
+  class Rails3ServeStaticAssestOverride < Rails::Railtie
+    initializer "action_dispatch.configure" do |app|
+      app.config.serve_static_assets = true
     end
   end
 end
